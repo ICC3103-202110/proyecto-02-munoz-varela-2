@@ -6,7 +6,7 @@ let valor = []
 function getTitle(){
     return chalk.yellow( //color.
         figlet.textSync(
-            'Wheather App', //mesage.
+            'Weather App', //mesage.
             {
                 horizontalLayout: 'full',
                 font: 'Nancyj-Underlined'
@@ -30,36 +30,27 @@ function getTable(model){ //table.
     return valor
 }
 
-function inputForm(model){
-    const {input1} = model
+function inputForm(){
     return inquirer.prompt([
         {
             name: 'input1',
             type: 'list',
             message: 'Select action: ',
-            default: input1,
-            choices: ['Add city', 'Update city','Delete city']
-        },
-        {
-            name: 'input2',
-            type: function({input1} = model){
-                if(input1 == 'Add city'){
-                    return 'input'
-                } else {
-                    return 'list'
-                } 
-            },
-            message: function({input1} = model){
-                if(input1 == 'Add city'){
-                    return 'Location?'
-                } else {
-                    return 'other'
-                } 
-            },
             choices: ['Add city', 'Update city','Delete city']
         }
     ])
 }
+
+function inputForm2(){
+    return inquirer.prompt([
+        {
+            name: 'input2',
+            type: 'input', 
+            message: 'Location?',
+        }
+    ])
+}
+
 
 // Get actual console view
 function view(model){
@@ -71,5 +62,6 @@ function view(model){
 
 module.exports = {
     view, 
-    inputForm
+    inputForm,
+    inputForm2
 }

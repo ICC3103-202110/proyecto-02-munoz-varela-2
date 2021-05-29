@@ -30,11 +30,13 @@ function getTable(model){ //table.
     return valor
 }
 
-function inputForm(){
+function inputForm(model){
+    const {input1} = model
     return inquirer.prompt([
         {
             name: 'input1',
             type: 'list',
+            default: input1,
             message: 'Select action: ',
             choices: ['Add city', 'Update city','Delete city']
         }
@@ -51,6 +53,18 @@ function inputForm2(){
     ])
 }
 
+function inputForm3(model){
+    const {name_city} = model
+    return inquirer.prompt([
+        {
+            name: 'input3',
+            type: 'input', 
+            message: 'Location?',
+            choices: name_city
+        }
+    ])
+}
+
 
 // Get actual console view
 function view(model){
@@ -63,5 +77,6 @@ function view(model){
 module.exports = {
     view, 
     inputForm,
-    inputForm2
+    inputForm2,
+    inputForm3
 }

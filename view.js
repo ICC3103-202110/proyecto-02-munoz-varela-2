@@ -26,7 +26,6 @@ function getTable(model){ //table.
     for (let k =0;k<name_city.length;k++){
         valor.push({"name": name_city[k],"temp": temp[k],"max": max[k],"min": min[k]}) 
     }
-    console.log(input2)
     return valor
 }
 

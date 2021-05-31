@@ -57,8 +57,21 @@ function inputForm3(model){
     return inquirer.prompt([
         {
             name: 'input3',
-            type: 'input', 
-            message: 'Location?',
+            type: 'list', 
+            message: 'Update city',
+            choices: name_city
+        }
+    ])
+}
+
+
+function inputForm4(model){
+    const {name_city} = model
+    return inquirer.prompt([
+        {
+            name: 'input3',
+            type: 'list', 
+            message: 'Delete city',
             choices: name_city
         }
     ])
@@ -77,5 +90,7 @@ module.exports = {
     view, 
     inputForm,
     inputForm2,
-    inputForm3
+    inputForm3,
+    inputForm4
+
 }

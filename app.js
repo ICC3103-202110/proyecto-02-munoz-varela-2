@@ -1,4 +1,4 @@
-const {inputForm,inputForm2} = require('./view')
+const {inputForm,inputForm2,inputForm3,inputForm4} = require('./view')
 const {printTable} = require('console-table-printer')
 
 // Impure
@@ -23,8 +23,11 @@ async function app(state, update, view){
                                                       //of the ask`s in views.
         if (input1 === 'Add city'){
             input2 = await inputForm2()
+        } else {if (input1 === 'Update city'){
+            input3 = await inputForm3(model)
         } else {
-            const {input2,input3,input4} = model
+            input4 = await inputForm4(model)
+        }
         }
         
         

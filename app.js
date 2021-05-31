@@ -7,7 +7,7 @@ async function app(state, update, view){
         const {model, currentView} = state
         const {title, table} = currentView
         // I/O
-        console.clear()
+        //console.clear()
         console.log(title)
         if (table.length == 0){
             console.log("NO CITIES")

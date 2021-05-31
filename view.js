@@ -69,7 +69,7 @@ function inputForm4(model){
     const {name_city} = model
     return inquirer.prompt([
         {
-            name: 'input3',
+            name: 'input4',
             type: 'list', 
             message: 'Delete city',
             choices: name_city

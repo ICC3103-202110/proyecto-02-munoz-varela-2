@@ -1,13 +1,15 @@
-Math.random();  
-function fname(input1,input2,model){
+Math.random(); 
+ 
+function fname(input1,input2,input3,input4,model){
     if (input1 === 'Add city'){
         model.name_city.push(input2.input2)//pushing the city
         return model.name_city
     } else {
+        console.log(model.name_city.findIndex(name_city => name_city === "input3.input3"))
         return model.name_city
     }
 }
-function ftemp(input1,input2,model){
+function ftemp(input1,input2,input3,input4,model){
     if (input1 === 'Add city'){
         model.temp.push((Math.random() * (30 - 0) + 0).toFixed(2))//randomvalue
         return model.temp
@@ -15,7 +17,7 @@ function ftemp(input1,input2,model){
         return model.temp
     }
 }
-function fmax(input1,input2,model){
+function fmax(input1,input2,input3,input4,model){
     if (input1 === 'Add city'){
         model.max.push((Math.random() * (30 - 0) + 0).toFixed(2))//randomvalue
         return model.max
@@ -23,7 +25,7 @@ function fmax(input1,input2,model){
         return model.max
     }
 }
-function fmin(input1,input2,model){
+function fmin(input1,input2,input3,input4,model){
     if (input1 === 'Add city'){
         model.min.push((Math.random() * (30 - 0) + 0).toFixed(2))//randomvalue
         return model.min
@@ -40,10 +42,10 @@ function update(input1,input2,input3,input4,model){
         input2: input2,
         input3: input3,
         input4: input4,
-        name_city: fname(input1,input2,model),
-        temp: ftemp(input1,input2,model),
-        max: fmax(input1,input2,model),
-        min: fmin(input1,input2,model),
+        name_city: fname(input1,input2,input3,input4,model),
+        temp: ftemp(input1,input2,input3,input4,model),
+        max: fmax(input1,input2,input3,input4,model),
+        min: fmin(input1,input2,input3,input4,model),
     } 
 }
 

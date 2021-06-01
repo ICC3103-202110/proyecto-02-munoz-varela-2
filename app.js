@@ -7,23 +7,21 @@ async function app(state, update, view){
         const {model, currentView} = state
         const {title, table} = currentView
         // I/O
-        //console.clear()
+        console.clear()
         console.log(title)
-        if (model['name_city'].length == 0){
+        if (model['cities_info'].length == 0){
             console.log("NO CITIES")
         }
         else{
             printTable(table)
         }
-        // FORM (Ask user input1 and input2)
+        // FORM (Ask user input1, input2, input3 and input4)
         let input2 = ''
         let input3 = ''
         let input4 = '' 
-        const {input1} = await inputForm(model) //here you put the names
-                                                      //of the ask`s in views.
+        const {input1} = await inputForm(model)
         if (input1 === 'Add city'){
             input2 = await inputForm2()
-            //model.lit_city.push(input2.input2)
         } else {if (input1 === 'Update city'){
             input3 = await inputForm3(model)
         } else {
@@ -39,8 +37,6 @@ async function app(state, update, view){
         }
     }
 }
-
 module.exports = {
     app
 }
-

@@ -4,9 +4,9 @@ const inquirer = require('inquirer')
 let valor = []
 
 function getTitle(){
-    return chalk.yellow( //color.
+    return chalk.yellow( // color.
         figlet.textSync(
-            'Weather App', //mesage.
+            'Weather App', // mesage.
             {
                 horizontalLayout: 'full',
                 font: 'Nancyj-Underlined'
@@ -15,10 +15,9 @@ function getTitle(){
     )
 }
 
-function getTable(model){ //table.
-    const {name_city} = model
-
-    return name_city
+function getTable(model){ // table.
+    const {cities_info} = model
+    return cities_info
 }
 
 function inputForm(model){
@@ -45,26 +44,26 @@ function inputForm2(){
 }
 
 function inputForm3(model){
-    const {name_city} = model
+    const {cities} = model
     return inquirer.prompt([
         {
             name: 'input3',
             type: 'list', 
             message: 'Update city',
-            choices: name_city
+            choices: cities
         }
     ])
 }
 
 
 function inputForm4(model){
-    const {name_city} = model
+    const {cities} = model
     return inquirer.prompt([
         {
             name: 'input4',
             type: 'list', 
             message: 'Delete city',
-            choices: ['a','b','c']
+            choices: cities
         }
     ])
 }

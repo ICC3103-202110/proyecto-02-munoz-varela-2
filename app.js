@@ -9,7 +9,7 @@ async function app(state, update, view){
         // I/O
         //console.clear()
         console.log(title)
-        if (table.length == 0){
+        if (model['name_city'].length == 0){
             console.log("NO CITIES")
         }
         else{
@@ -23,13 +23,13 @@ async function app(state, update, view){
                                                       //of the ask`s in views.
         if (input1 === 'Add city'){
             input2 = await inputForm2()
+            //model.lit_city.push(input2.input2)
         } else {if (input1 === 'Update city'){
             input3 = await inputForm3(model)
         } else {
             input4 = await inputForm4(model)
         }
         }
-        
         
         const updatedModel = update(input1,input2,input3,input4,model)
         state = {

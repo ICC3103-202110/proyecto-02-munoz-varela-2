@@ -17,16 +17,8 @@ function getTitle(){
 
 function getTable(model){ //table.
     const {name_city} = model
-    const {temp} = model
-    const {max} = model
-    const {min} = model
-    const {input2} = model
 
-    valor = []
-    for (let k =0;k<name_city.length;k++){
-        valor.push({"name": name_city[k],"temp": temp[k],"max": max[k],"min": min[k]}) 
-    }
-    return valor
+    return name_city
 }
 
 function inputForm(model){
@@ -72,7 +64,7 @@ function inputForm4(model){
             name: 'input4',
             type: 'list', 
             message: 'Delete city',
-            choices: name_city
+            choices: ['a','b','c']
         }
     ])
 }

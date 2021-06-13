@@ -1,7 +1,6 @@
 const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
-let valor = []
 
 function getTitle(){
     return chalk.yellow( // color.
@@ -16,58 +15,70 @@ function getTitle(){
 }
 
 function getTable(model){ // table.
-    const {cities_info} = model
-    return cities_info
+    const {tableInfo} = model
+    return tableInfo
 }
 
-function inputForm(model){
-    const {input1} = model
+function noCitiesOptions(model){ //  No cities options menu.
+    const {mainInput} = model
     return inquirer.prompt([
         {
-            name: 'input1',
+            name: 'mainInput',
             type: 'list',
-            default: input1,
+            default: mainInput,
+            message: 'Select action: ',
+            choices: ['Add city']
+        }
+    ])
+}
+
+
+function mainOptions(model){ // Main options menu.
+    const {mainInput} = model
+    return inquirer.prompt([
+        {
+            name: 'mainInput',
+            type: 'list',
+            default: mainInput,
             message: 'Select action: ',
             choices: ['Add city', 'Update city','Delete city']
         }
     ])
 }
 
-function inputForm2(){
+function addLocation(){ // Location to add.
     return inquirer.prompt([
         {
-            name: 'input2',
+            name: 'addInput',
             type: 'input', 
             message: 'Location?',
         }
     ])
 }
 
-function inputForm3(model){
-    const {cities} = model
+function updateLocation(model){ // Location to update.
+    const {nameCities} = model
     return inquirer.prompt([
         {
-            name: 'input3',
+            name: 'updateInput',
             type: 'list', 
             message: 'Update city',
-            choices: cities
+            choices: nameCities
         }
     ])
 }
 
-
-function inputForm4(model){
-    const {cities} = model
+function deleteLocation(model){ // Location to delete.
+    const {nameCities} = model
     return inquirer.prompt([
         {
-            name: 'input4',
+            name: 'deleteInput',
             type: 'list', 
             message: 'Delete city',
-            choices: cities
+            choices: nameCities
         }
     ])
 }
-
 
 // Get actual console view
 function view(model){
@@ -78,10 +89,10 @@ function view(model){
 }
 
 module.exports = {
-    view, 
-    inputForm,
-    inputForm2,
-    inputForm3,
-    inputForm4
-
+    view,
+    noCitiesOptions, 
+    mainOptions,
+    addLocation,
+    updateLocation,
+    deleteLocation
 }
